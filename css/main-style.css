@@ -52,34 +52,62 @@ table {
 }
 
 body {
+	background: black;
+}
+
+.main-container {
+	height: 100vh;
+	width: 100vw;
+	background: lightblue;
+	animation: fade 2.5s linear;
 	text-align: center;
-	margin-top: 5em;
+	padding-top: 6em;
+}
+
+@keyframes fade {
+	0% {opacity: 0}
+	100% {opacity: 1}
 }
 
 h1 {
 	/* Search for a better font slanted, italic style */
-	font-family: cursive;
-	font-size: 3em;
+	font-family: 'Teko', sans-serif;
+	font-size: 4em;
+	font-weight: 600;
 }
 
 a, p {
-	font-size: 1.5em;
+	font-size: 2em;
 	display: inline;
 	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		color: black;
+	}
+	5% {
+		color:purple;
+	}
 }
 
 p {
 	font-family: sans-serif;
-	font-size: 1.7em;
+	font-size: 2em;
 	font-weight: 200;
 }
 
 .classic {
 	/* Search or a good classic style font */
-	font-family: cursive;
+	font-family: 'Playball',cursive;
 }
 
 .modern {
 	/* Search for a good modern style font */
-	font-family: impact;
+	font-family: 'Titillium Web', sans-serif;
 }
