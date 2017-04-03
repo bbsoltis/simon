@@ -50,3 +50,36 @@ table {
 * {
     box-sizing: border-box;
 }
+
+body {
+	text-align: center;
+	margin-top: 5em;
+}
+
+h1 {
+	/* Search for a better font slanted, italic style */
+	font-family: cursive;
+	font-size: 3em;
+}
+
+a, p {
+	font-size: 1.5em;
+	display: inline;
+	text-decoration: none;
+}
+
+p {
+	font-family: sans-serif;
+	font-size: 1.7em;
+	font-weight: 200;
+}
+
+.classic {
+	/* Search or a good classic style font */
+	font-family: cursive;
+}
+
+.modern {
+	/* Search for a good modern style font */
+	font-family: impact;
+}
