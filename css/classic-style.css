@@ -51,18 +51,91 @@ table {
     box-sizing: border-box;
 }
 
-body {
-	background: lightblue;
+html {
+	background: black;
 }
 
-.main-container {
+body {
 	height: 100vh;
 	width: 100vw;
-	background: black;
-	animation: fade 2.5s linear;	
+	background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/retina_wood.png');
 }
 
-@keyframes fade {
-	0% {opacity: 0}
-	50% {opacity: 1}
+.game-body {
+	position: absolute;
+	height: 475px;
+	width: 475px;
+	border-radius: 50%;
+	background: #333333;
+	margin: 0 auto;
+	top: 10vh;
+	left: 0;
+	right: 0;
+	box-shadow: 0 0 10px;
+}
+
+button {
+	height: 210px;
+	width: 210px;
+	border-style: none;
+	outline: none;
+	position: relative;
+	left: 35px;
+	top: 35px;
+}
+
+.green {
+	background:#00A74A;
+	border-top-left-radius: 210px;
+	top: 25px;
+	left: 25px;
+}
+
+.red {
+	background: #9F0F17;
+	border-top-right-radius: 210px;
+	top: 25px;
+	left: 25px;
+}
+
+.blue {
+	background: #094A8F;
+	border-bottom-right-radius: 210px;
+	top: 25px;
+	left: 25px;
+}
+
+.yellow {
+	background: #CCA707;
+	border-bottom-left-radius: 210px;
+	top: 25px;
+	left: 25px;
+}
+
+.center-cover-up {
+	position: absolute;
+	height: 242px;
+	width: 242px;
+	background: #333333;
+	border-radius: 100%;
+	top: 115px;
+	left: 115px;
+}
+
+.vert-cross {
+	background: #333333;
+	width: 30px;
+	height: 465px;
+	position: absolute;
+	top: 5px;
+	left: 222px;
+}
+
+.hor-cross {
+	background: #333333;
+	width: 465px;
+	height: 30px;
+	position: absolute;
+	top: 222px;
+	left: 5px;
 }
