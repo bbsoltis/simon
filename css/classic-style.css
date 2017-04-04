@@ -80,10 +80,7 @@ button {
 	border-style: none;
 	outline: none;
 	position: relative;
-<<<<<<< HEAD
 	cursor: pointer;
-=======
->>>>>>> 74558d0f34183d931a33ceade2b2c4a9640040b0
 }
 
 .green {
@@ -143,7 +140,6 @@ button {
 }
 
 .face {
-<<<<<<< HEAD
 	height: 220px;
 	width: 220px;
 	position: absolute;
@@ -151,15 +147,6 @@ button {
 	border-radius: 50%;
 	top: 126px;
 	left: 126px;
-=======
-	height: 212px;
-	width: 212px;
-	position: absolute;
-	background: #ECE7EE;
-	border-radius: 50%;
-	top: 130px;
-	left: 130px;
->>>>>>> 74558d0f34183d931a33ceade2b2c4a9640040b0
 }
 
 .round-btn {
@@ -168,35 +155,22 @@ button {
 	border: 4px solid #333333;
 	border-radius: 50%;
 	position: absolute;
-<<<<<<< HEAD
 	top: 235px;
-=======
-	top: 233px;
->>>>>>> 74558d0f34183d931a33ceade2b2c4a9640040b0
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
 }
 
 .start-btn {
 	background: #FC0102;
-<<<<<<< HEAD
 	left: 227px;
-=======
-	left: 224px;
->>>>>>> 74558d0f34183d931a33ceade2b2c4a9640040b0
 }
 
 .strict-btn {
 	background: #FFFF00;
-<<<<<<< HEAD
 	left: 281px;
-=======
-	left: 276px;
->>>>>>> 74558d0f34183d931a33ceade2b2c4a9640040b0
 }
 
 .round-btn-click:active {
 	box-shadow: 0 0 0;
-<<<<<<< HEAD
 	top: 236px;
 }
 
@@ -273,4 +247,5 @@ button {
 .reg-label {
 	font-size: 16px;
 	vertical-align: super;
+	top: 234px;
 }
