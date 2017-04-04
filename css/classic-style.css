@@ -187,3 +187,35 @@ button {
 	font-family: 'VT323';
 	text-align: center;
 }
+
+.labels {
+	position: absolute;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 200;
+	font-size: 11px;
+}
+
+.count-label {
+	top: 277px;
+	left: 168px;
+}
+
+.start-label {
+	top: 277px;
+	left: 229px;
+}
+
+.strict-label {
+	top: 277px;
+	left: 282px;
+}
+
+.off-label {
+	top: 310px;
+	left: 190px;
+}
+
+.on-label {
+	top: 310px;
+	left: 270px;
+}
