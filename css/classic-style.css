@@ -80,35 +80,33 @@ button {
 	border-style: none;
 	outline: none;
 	position: relative;
-	left: 35px;
-	top: 35px;
 }
 
 .green {
 	background:#00A74A;
 	border-top-left-radius: 210px;
-	top: 25px;
+	top: 27px;
 	left: 25px;
 }
 
 .red {
 	background: #9F0F17;
 	border-top-right-radius: 210px;
-	top: 25px;
+	top: 27px;
 	left: 25px;
 }
 
 .blue {
 	background: #094A8F;
 	border-bottom-right-radius: 210px;
-	top: 25px;
+	top: 27px;
 	left: 25px;
 }
 
 .yellow {
 	background: #CCA707;
 	border-bottom-left-radius: 210px;
-	top: 25px;
+	top: 27px;
 	left: 25px;
 }
 
@@ -124,7 +122,7 @@ button {
 
 .vert-cross {
 	background: #333333;
-	width: 30px;
+	width: 24px;
 	height: 465px;
 	position: absolute;
 	top: 5px;
@@ -134,8 +132,43 @@ button {
 .hor-cross {
 	background: #333333;
 	width: 465px;
-	height: 30px;
+	height: 24px;
 	position: absolute;
 	top: 222px;
 	left: 5px;
+}
+
+.face {
+	height: 212px;
+	width: 212px;
+	position: absolute;
+	background: #ECE7EE;
+	border-radius: 50%;
+	top: 130px;
+	left: 130px;
+}
+
+.round-btn {
+	height: 29px;
+	width: 29px;
+	border: 4px solid #333333;
+	border-radius: 50%;
+	position: absolute;
+	top: 233px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+.start-btn {
+	background: #FC0102;
+	left: 224px;
+}
+
+.strict-btn {
+	background: #FFFF00;
+	left: 276px;
+}
+
+.round-btn-click:active {
+	box-shadow: 0 0 0;
+	top: 234px;
 }
