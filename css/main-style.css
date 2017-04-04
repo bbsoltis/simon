@@ -78,7 +78,7 @@ a, p {
 }
 
 a:hover {
-	animation: pulse 1.2s infinite;
+	animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
