@@ -61,6 +61,7 @@ body {
 	background: lightblue;
 	text-align: center;
 	padding-top: 6em;
+	user-select: none;
 }
 
 h1 {

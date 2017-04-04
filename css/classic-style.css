@@ -139,13 +139,13 @@ button {
 }
 
 .face {
-	height: 212px;
-	width: 212px;
+	height: 220px;
+	width: 220px;
 	position: absolute;
 	background: #ECE7EE;
 	border-radius: 50%;
-	top: 130px;
-	left: 130px;
+	top: 126px;
+	left: 126px;
 }
 
 .round-btn {
@@ -160,15 +160,30 @@ button {
 
 .start-btn {
 	background: #FC0102;
-	left: 224px;
+	left: 227px;
 }
 
 .strict-btn {
 	background: #FFFF00;
-	left: 276px;
+	left: 281px;
 }
 
 .round-btn-click:active {
 	box-shadow: 0 0 0;
 	top: 234px;
+}
+
+.digital-readout {
+	height: 41px; 
+	width: 58px;
+	position: absolute;
+	background: #32050C;
+	border: 4px solid #333333;
+	border-radius: 10px;
+	top: 228px;
+	left: 153px;
+	color: #430710;
+	font-size: 2em;
+	font-family: 'VT323';
+	text-align: center;
 }
