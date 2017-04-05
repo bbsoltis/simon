@@ -49,3 +49,86 @@
 // ** Questions **
 // 1. How to best connect power switch (checkbox) with JS without a global variable? With? 
 // 2. Lots of timer stuff happening here!
+
+// .yellow.light #fed93f
+
+// .blue.light #1c8cff
+
+// .red.light #ff4c4c
+
+// .green.light #13ff7c
+
+// LED Light #dc0d29
+
+
+window.onload = function () {
+
+    document.getElementById('power-switch-checkbox').onclick = function() {
+        powerStatus();
+        hitTheLights();
+    };
+
+    document.getElementById('strict').onclick = function() {
+        strictMode();
+    };
+
+}
+
+function hitTheLights() {
+    let displayElem = document.getElementById('digital-readout-display'),
+        strictLedElem = document.getElementById('strict-led-light');
+    setTimeout(function () {
+        if (powerStatus() == "on") {
+            displayElem.style.color = "#dc0d29";
+        } else {
+            displayElem.style.color = "#430710";
+            strictLedElem.style.background = "#430710";
+        }
+    }, 50);
+}
+
+// Try changing class names back and forth to keep track of "toggle"
+
+// Of course, if we're using the class of the element, we might as well use CSS to style the element:
+
+// function btnColor(btn) {
+// var property = document.getElementById(btn);
+//     if (property.className !== 'toggled') {
+//         property.className = 'toggled'
+//     }
+//     else {
+//         property.className = '';
+//     }
+// }
+// With the CSS:
+
+// #btnHousing {
+//     background-color: rgb(255,242,0);
+// }
+
+// #btnHousing.toggled {
+//     background-color: rgb(244,113,33);
+// }
+
+function strictMode() {
+    let elem = document.getElementById("strict-led-light");
+    if (powerStatus() == "on") {
+        elem.style.background = "#dc0d29";
+        return "on";
+    } else if () {
+        elem.style.background = "#430710";
+        return "off";
+    }
+}
+
+// Determines the state of the virtual power switch
+// powerStatus() == "on"
+// powerStatus() == "off"
+function powerStatus() {
+    let powerSwitchState = "off";
+    let inputElements = document.getElementById('power-switch-checkbox');
+    if (inputElements.checked) {
+        powerSwitchState = inputElements.value;
+    }
+    return powerSwitchState;
+}

@@ -21,18 +21,18 @@
             <div class="vert-cross"></div>
             <div class="hor-cross"></div>
             <div class="face">
-                <button class="round-btn round-btn-click start-btn"></button>
-                <button class="round-btn round-btn-click strict-btn"></button>
-                <div class="digital-readout">--</div>
+                <button class="round-btn round-btn-click start-btn" id="start"></button>
+                <button class="round-btn round-btn-click strict-btn" id="strict"></button>
+                <div class="digital-readout" id="digital-readout-display">--</div>
                 <div class="simon-label">Simon<span class="reg-label">&reg;</span></div>
                 <div class="labels count-label">COUNT</div>
                 <div class="labels start-label">START</div>
                 <div class="labels strict-label">STRICT</div>
                 <div class="labels on-label">ON</div>
                 <div class="labels off-label">OFF</div>
-                <div class="strict-led"></div>
-                <label class="switch" >
-                    <input type="checkbox" class="power-switch">
+                <div class="strict-led" id="strict-led-light"></div>
+                <label class="switch">
+                    <input type="checkbox" class="power-switch" id="power-switch-checkbox">
                     <div class="slider square"></div>
                 </label>
             </div>
