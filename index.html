@@ -2,21 +2,41 @@
 <html lang="en">
 
 <head>
-    <title>Simon</title>
+    <title>Simon&reg; Game</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/main-style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web|Playball|Teko" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Oswald|VT323" rel="stylesheet">
 </head>
 
-<body>
+<body class="animate-in">
     <div class="main-container">
-        <h1>Let's Play Simon!</h1>
-        <br>
-        <br>
-        <a href="classic.html" class="classic">Classic</a>
-        <p> &nbsp | &nbsp </p>
-        <a href="modern.html" class="modern">Modern</a>
+        <div class="game-body">
+            <button type="button" class="green"></button>
+            <button type="button" class="red"></button>
+            <button type="button" class="yellow"></button>
+            <button type="button" class="blue"></button>
+            <div class="center-cover-up"></div>
+            <div class="vert-cross"></div>
+            <div class="hor-cross"></div>
+            <div class="face">
+                <button class="round-btn round-btn-click start-btn"></button>
+                <button class="round-btn round-btn-click strict-btn"></button>
+                <div class="digital-readout">--</div>
+                <div class="simon-label">Simon<span class="reg-label">&reg;</span></div>
+                <div class="labels count-label">COUNT</div>
+                <div class="labels start-label">START</div>
+                <div class="labels strict-label">STRICT</div>
+                <div class="labels on-label">ON</div>
+                <div class="labels off-label">OFF</div>
+                <div class="strict-led"></div>
+                <label class="switch" >
+                    <input type="checkbox" class="power-switch">
+                    <div class="slider square"></div>
+                </label>
+            </div>
+        </div>
     </div>
 </body>
 
