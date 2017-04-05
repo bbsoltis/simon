@@ -63,8 +63,8 @@ body {
 
 .game-body {
 	position: absolute;
-	height: 475px;
-	width: 475px;
+	height: 472px;
+	width: 472px;
 	border-radius: 50%;
 	background: #333333;
 	margin: 0 auto;
@@ -75,8 +75,8 @@ body {
 }
 
 button {
-	height: 210px;
-	width: 210px;
+	height: 212px;
+	width: 212px;
 	border-style: none;
 	outline: none;
 	position: relative;
@@ -85,40 +85,40 @@ button {
 
 .green {
 	background:#00A74A;
-	border-top-left-radius: 210px;
-	top: 27px;
-	left: 25px;
+	border-top-left-radius: 212px;
+	top: 24px;
+	left: 24px;
 }
 
 .red {
 	background: #9F0F17;
-	border-top-right-radius: 210px;
-	top: 27px;
-	left: 25px;
+	border-top-right-radius: 212px;
+	top: 24px;
+	left: 20px;
 }
 
 .blue {
 	background: #094A8F;
-	border-bottom-right-radius: 210px;
-	top: 27px;
-	left: 25px;
+	border-bottom-right-radius: 212px;
+	top: 24px;
+	left: 20px;
 }
 
 .yellow {
 	background: #CCA707;
-	border-bottom-left-radius: 210px;
-	top: 27px;
-	left: 25px;
+	border-bottom-left-radius: 212px;
+	top: 24px;
+	left: 24px;
 }
 
 .center-cover-up {
 	position: absolute;
-	height: 242px;
-	width: 242px;
+	height: 244px;
+	width: 244px;
 	background: #333333;
 	border-radius: 100%;
-	top: 115px;
-	left: 115px;
+	top: 114px;
+	left: 114px;
 }
 
 .vert-cross {
@@ -127,7 +127,7 @@ button {
 	height: 465px;
 	position: absolute;
 	top: 5px;
-	left: 222px;
+	left: 224px;
 }
 
 .hor-cross {
@@ -135,7 +135,7 @@ button {
 	width: 465px;
 	height: 24px;
 	position: absolute;
-	top: 222px;
+	top: 224px;
 	left: 5px;
 }
 
@@ -155,34 +155,34 @@ button {
 	border: 4px solid #333333;
 	border-radius: 50%;
 	position: absolute;
-	top: 235px;
+	top: 112px;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
 }
 
 .start-btn {
 	background: #FC0102;
-	left: 227px;
+	left: 101px;
 }
 
 .strict-btn {
 	background: #FFFF00;
-	left: 281px;
+	left: 155px;
 }
 
 .round-btn-click:active {
 	box-shadow: 0 0 0;
-	top: 236px;
+	top: 113px;
 }
 
 .digital-readout {
-	height: 41px; 
+	height: 40px; 
 	width: 58px;
 	position: absolute;
 	background: #32050C;
 	border: 4px solid #333333;
 	border-radius: 10px;
-	top: 230px;
-	left: 153px;
+	top: 105px;
+	left: 27px;
 	color: #430710;
 	font-size: 2em;
 	font-family: 'VT323';
@@ -197,8 +197,8 @@ button {
 	border-radius: 50%;
 	background: #430710;
 	position: absolute;
-	top: 222px;
-	left: 290px;
+	top: 99px;
+	left: 164px;
 }
 
 .labels {
@@ -210,34 +210,34 @@ button {
 }
 
 .count-label {
-	top: 279px;
-	left: 168px;
+	top: 153px;
+	left: 42px;
 }
 
 .start-label {
-	top: 279px;
-	left: 229px;
+	top: 153px;
+	left: 103px;
 }
 
 .strict-label {
-	top: 279px;
-	left: 282px;
+	top: 153px;
+	left: 155px;
 }
 
 .off-label {
-	top: 309px;
-	left: 195px;
+	top: 183px;
+	left: 73px;
 }
 
 .on-label {
-	top: 309px;
-	left: 258px;
+	top: 183px;
+	left: 135px;
 }
 
 .simon-label {
 	position: absolute;
-	top: 170px;
-	left: 144px;
+	top: 45px;
+	left: 18px;
 	font-family: 'Alfa Slab One', serif;
 	font-size: 51px;
 	color: #222222;
@@ -245,7 +245,6 @@ button {
 }
 
 .reg-label {
-	font-size: 16px;
+	font-size: 15px;
 	vertical-align: super;
-	top: 234px;
 }
