@@ -115,7 +115,7 @@ function strictMode() {
     if (powerStatus() == "on") {
         elem.style.background = "#dc0d29";
         return "on";
-    } else if () {
+    } else  {
         elem.style.background = "#430710";
         return "off";
     }
