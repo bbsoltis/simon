@@ -60,6 +60,7 @@
 
 // LED Light #dc0d29
 
+let strictModeState = "off"; 
 
 window.onload = function () {
 
@@ -74,6 +75,7 @@ window.onload = function () {
 
 }
 
+// Turns on the simulated LEDs in the digital display
 function hitTheLights() {
     let displayElem = document.getElementById('digital-readout-display'),
         strictLedElem = document.getElementById('strict-led-light');
@@ -87,45 +89,23 @@ function hitTheLights() {
     }, 50);
 }
 
-// Try changing class names back and forth to keep track of "toggle"
-
-// Of course, if we're using the class of the element, we might as well use CSS to style the element:
-
-// function btnColor(btn) {
-// var property = document.getElementById(btn);
-//     if (property.className !== 'toggled') {
-//         property.className = 'toggled'
-//     }
-//     else {
-//         property.className = '';
-//     }
-// }
-// With the CSS:
-
-// #btnHousing {
-//     background-color: rgb(255,242,0);
-// }
-
-// #btnHousing.toggled {
-//     background-color: rgb(244,113,33);
-// }
-
+// Sets the state of the strict mode push button toggle
 function strictMode() {
     let elem = document.getElementById("strict-led-light");
     if (powerStatus() == "on") {
-        elem.style.background = "#dc0d29";
-        return "on";
-    } else  {
-        elem.style.background = "#430710";
-        return "off";
+        if (strictModeState == "off") {
+            elem.style.background = "#dc0d29";
+            return strictModeState = "on";
+        } else if (strictModeState == "on") {
+            elem.style.background = "#430710";
+            return strictModeState = "off";
+        }
     }
 }
 
 // Determines the state of the virtual power switch
-// powerStatus() == "on"
-// powerStatus() == "off"
 function powerStatus() {
-    let powerSwitchState = "off";
+    let powerSwitchState;
     let inputElements = document.getElementById('power-switch-checkbox');
     if (inputElements.checked) {
         powerSwitchState = inputElements.value;
