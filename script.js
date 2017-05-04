@@ -60,7 +60,8 @@
 
 // LED Light #dc0d29
 
-let strictModeState = "off"; 
+let strictModeState = "off",
+    moveSequenceArray = []; 
 
 window.onload = function () {
 
@@ -71,6 +72,10 @@ window.onload = function () {
 
     document.getElementById('strict').onclick = function() {
         strictMode();
+    };
+
+    document.getElementById('start').onclick = function() {
+        startGame();
     };
 
 }
@@ -112,3 +117,17 @@ function powerStatus() {
     }
     return powerSwitchState;
 }
+
+function startGame() {
+    setMoveSequence();
+}
+
+function setMoveSequence() {
+    let rndNum;
+    moveSequenceArray = [];
+    for (let i = 0; i < 20; i++) {
+        rndNum = Math.floor(Math.random() * (5 - 1) + 1);
+        moveSequenceArray.push(rndNum);
+    }
+}
+
