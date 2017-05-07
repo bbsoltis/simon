@@ -306,3 +306,4 @@ input:checked + .slider:before {
 .slider.square:before {
   border-radius: 4px;
 }
+
