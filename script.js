@@ -136,6 +136,7 @@ function startGame() {
         setMoveSequence();
         blinkLedTwice();
         setTimeout(computerTurn, 2000);
+        flashBlueBtn();
     }
 }
 
@@ -164,10 +165,38 @@ function blinkLedTwice() {
 }
 
 function computerTurn() {
-    let ledDisplay = document.getElementById('digital-readout-display'),
-        greenBtn = document.getElementById('green-btn'),
-        redBtn = document.getElementById('red-btn'),
-        yellowBtn = document.getElementById('yellow-btn'),
-        blueBtn = document.getElementById('blue-btn');
+    let ledDisplay = document.getElementById('digital-readout-display');
     ledDisplay.innerHTML = (moveCounter<10 ? "0" + moveCounter : moveCounter);
+}
+
+function flashGreenBtn() {
+    let greenBtn = document.getElementById('green-btn');
+    greenBtn.style.background = "#13ff7c";
+    setTimeout(function () {
+        greenBtn.style.background = "#00A74A";
+    }, 500);
+}
+
+function flashRedBtn() {
+    let redBtn = document.getElementById('red-btn');
+    redBtn.style.background = "#ff4c4c";
+    setTimeout(function () {
+        redBtn.style.background = "#9F0F17";
+    }, 500);
+}
+
+function flashYellowBtn() {
+    let yellowBtn = document.getElementById('yellow-btn');
+    yellowBtn.style.background = "#fed93f";
+    setTimeout(function () {
+        yellowBtn.style.background = "#CCA707";
+    }, 500);
+}
+
+function flashBlueBtn() {
+    let blueBtn = document.getElementById('blue-btn');
+    blueBtn.style.background = "#1c8cff";
+    setTimeout(function () {
+        blueBtn.style.background = "#094A8F";
+    }, 500);
 }
