@@ -62,7 +62,7 @@
 
 let strictModeState = "off",
     moveSequenceArray = [],
-    moveCounter = 1; 
+    moveCounter = 4; 
 
 window.onload = function () {
 
@@ -135,8 +135,7 @@ function startGame() {
     if (powerStatus() == "on") {
         setMoveSequence();
         blinkLedTwice();
-        setTimeout(computerTurn, 2000);
-        flashBlueBtn();
+        computerTurn();
     }
 }
 
@@ -165,8 +164,20 @@ function blinkLedTwice() {
 }
 
 function computerTurn() {
-    let ledDisplay = document.getElementById('digital-readout-display');
+    let ledDisplay = document.getElementById('digital-readout-display'),
+        count = 1;
     ledDisplay.innerHTML = (moveCounter<10 ? "0" + moveCounter : moveCounter);
+    for (let i = 0; i < moveCounter; i++) {
+        if (moveSequenceArray[count - 1] == 1) {
+            flashGreenBtn();
+        } else if (moveSequenceArray[count - 1] == 2) {
+            flashRedBtn();
+        } else if (moveSequenceArray[count - 1] == 3) {
+            flashYellowBtn();
+        } else if (moveSequenceArray[count - 1] == 4) {
+            flashBlueBtn();
+        }
+    }
 }
 
 function flashGreenBtn() {
