@@ -61,7 +61,8 @@
 // LED Light #dc0d29
 
 let strictModeState = "off",
-    moveSequenceArray = []; 
+    moveSequenceArray = [],
+    moveCounter = 1; 
 
 window.onload = function () {
 
@@ -78,6 +79,16 @@ window.onload = function () {
         startGame();
     };
 
+    resetGame();
+
+}
+
+function resetGame() {
+    let ledDisplay = document.getElementById('digital-readout-display'),
+        strictLedDisplay = document.getElementById('strict-led-light');
+    ledDisplay.innerHTML = "--";
+    ledDisplay.style.color = "#430710";
+    strictLedDisplay.style.background = "#430710"
 }
 
 // Turns on the simulated LEDs in the digital display
@@ -114,12 +125,18 @@ function powerStatus() {
     let inputElements = document.getElementById('power-switch-checkbox');
     if (inputElements.checked) {
         powerSwitchState = inputElements.value;
+    } else if (!inputElements.checked) {
+        resetGame();
     }
     return powerSwitchState;
 }
 
 function startGame() {
-    setMoveSequence();
+    if (powerStatus() == "on") {
+        setMoveSequence();
+        blinkLedTwice();
+        setTimeout(computerTurn, 2000);
+    }
 }
 
 function setMoveSequence() {
@@ -129,4 +146,25 @@ function setMoveSequence() {
         rndNum = Math.floor(Math.random() * (5 - 1) + 1);
         moveSequenceArray.push(rndNum);
     }
+}
+
+function blinkLedTwice() {
+    let ledDisplay = document.getElementById('digital-readout-display'),
+        count = 1,
+        intervalId = setInterval(function() {
+            if (ledDisplay.style.color == "rgb(67, 7, 16)") {
+                ledDisplay.style.color = "#dc0d29";
+                if (count++ === 2) {
+                    clearInterval(intervalId);
+                }
+            } else {
+                ledDisplay.style.color = "#430710"
+                
+            }
+        }, 250);
+}
+
+function computerTurn() {
+    let ledDisplay = document.getElementById('digital-readout-display');
+    ledDisplay.innerHTML = (moveCounter<10 ? "0" + moveCounter : moveCounter);
 }
