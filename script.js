@@ -159,12 +159,15 @@ function blinkLedTwice() {
                 }
             } else {
                 ledDisplay.style.color = "#430710"
-                
             }
         }, 250);
 }
 
 function computerTurn() {
-    let ledDisplay = document.getElementById('digital-readout-display');
+    let ledDisplay = document.getElementById('digital-readout-display'),
+        greenBtn = document.getElementById('green-btn'),
+        redBtn = document.getElementById('red-btn'),
+        yellowBtn = document.getElementById('yellow-btn'),
+        blueBtn = document.getElementById('blue-btn');
     ledDisplay.innerHTML = (moveCounter<10 ? "0" + moveCounter : moveCounter);
 }
