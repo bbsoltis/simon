@@ -133,8 +133,8 @@ function powerStatus() {
 }
 
 function startGame() {
+    resetGame();
     if (powerStatus() == "on") {
-        setMoveSequence();
         blinkLedTwice();
         setTimeout(function() {
             computerTurn(0);
@@ -166,7 +166,10 @@ function blinkLedTwice() {
         }, 250);
 }
 
+// Modify to randomize and push one move at a time to moveSequenceArray
+// instead of creating the entire thing at once
 function computerTurn(index) {
+    setMoveSequence();
     let ledDisplay = document.getElementById('digital-readout-display'),
         events = [flashGreenBtn, flashRedBtn, flashYellowBtn, flashBlueBtn],
         move = moveSequenceArray[index];
@@ -176,7 +179,7 @@ function computerTurn(index) {
         if (index < (moveCounter - 1)) {
             computerTurn(index + 1);
         }
-    }, 600);
+    }, 1000);
 }
 
 function flashGreenBtn() {
@@ -184,7 +187,7 @@ function flashGreenBtn() {
     greenBtn.style.background = "#13ff7c";
     setTimeout(function () {
         greenBtn.style.background = "#00A74A";
-    }, 500);
+    }, 700);
 }
 
 function flashRedBtn() {
@@ -192,7 +195,7 @@ function flashRedBtn() {
     redBtn.style.background = "#ff4c4c";
     setTimeout(function () {
         redBtn.style.background = "#9F0F17";
-    }, 500);
+    }, 700);
 }
 
 function flashYellowBtn() {
@@ -200,7 +203,7 @@ function flashYellowBtn() {
     yellowBtn.style.background = "#fed93f";
     setTimeout(function () {
         yellowBtn.style.background = "#CCA707";
-    }, 500);
+    }, 700);
 }
 
 function flashBlueBtn() {
@@ -208,5 +211,14 @@ function flashBlueBtn() {
     blueBtn.style.background = "#1c8cff";
     setTimeout(function () {
         blueBtn.style.background = "#094A8F";
-    }, 500);
+    }, 700);
+}
+
+function playerTurn() {
+    // pushing the button pushes that buttons value to an array
+    // button lights up while being pushed (CSS?)
+    // plays the button's tone
+    // compares this array to moveSequenceArray
+        // if fail: error tone, then replay the sequence
+        // if success: add a move and play amended sequence
 }
