@@ -88,7 +88,8 @@ function resetGame() {
         strictLedDisplay = document.getElementById('strict-led-light');
     ledDisplay.innerHTML = "--";
     ledDisplay.style.color = "#430710";
-    strictLedDisplay.style.background = "#430710"
+    strictLedDisplay.style.background = "#430710";
+    // moveCounter = 1;
 }
 
 // Turns on the simulated LEDs in the digital display
@@ -135,7 +136,7 @@ function startGame() {
     if (powerStatus() == "on") {
         setMoveSequence();
         blinkLedTwice();
-        computerTurn();
+        computerTurn(0);
     }
 }
 
@@ -143,7 +144,7 @@ function setMoveSequence() {
     let rndNum;
     moveSequenceArray = [];
     for (let i = 0; i < 20; i++) {
-        rndNum = Math.floor(Math.random() * (5 - 1) + 1);
+        rndNum = Math.floor(Math.random() * (5 - 1));
         moveSequenceArray.push(rndNum);
     }
 }
@@ -163,21 +164,18 @@ function blinkLedTwice() {
         }, 250);
 }
 
-function computerTurn() {
+function computerTurn(index) {
     let ledDisplay = document.getElementById('digital-readout-display'),
-        count = 1;
+        events = [flashGreenBtn, flashRedBtn, flashYellowBtn, flashBlueBtn],
+        move = moveSequenceArray[index];
     ledDisplay.innerHTML = (moveCounter<10 ? "0" + moveCounter : moveCounter);
-    for (let i = 0; i < moveCounter; i++) {
-        if (moveSequenceArray[count - 1] == 1) {
-            flashGreenBtn();
-        } else if (moveSequenceArray[count - 1] == 2) {
-            flashRedBtn();
-        } else if (moveSequenceArray[count - 1] == 3) {
-            flashYellowBtn();
-        } else if (moveSequenceArray[count - 1] == 4) {
-            flashBlueBtn();
+    window.setTimeout( function() {
+        console.log(index);
+        events[move]();
+        if (index < (moveCounter - 1)) {
+            computerTurn(index + 1);
         }
-    }
+    }, 700);
 }
 
 function flashGreenBtn() {
