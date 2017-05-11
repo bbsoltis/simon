@@ -62,7 +62,7 @@
 
 let strictModeState = "off",
     moveSequenceArray = [],
-    moveCounter = 1; 
+    moveCounter = 18; 
 
 window.onload = function () {
 
@@ -72,7 +72,9 @@ window.onload = function () {
     }
 
     document.getElementById('test2').onclick = function() {
-        
+        if (moveCounter < 20) {
+            moveCounter++;
+        }
     }
     // end test button section
 
@@ -155,8 +157,10 @@ function startGame() {
 
 function setMoveSequence() {
     let rndNum;
+    if (moveSequenceArray.length < 20) {
         rndNum = Math.floor(Math.random() * (5 - 1));
         moveSequenceArray.push(rndNum);
+    }
 }
 
 function blinkLedTwice() {
@@ -178,7 +182,6 @@ function computerTurn(index) {
     if (moveSequenceArray.length < moveCounter) {
         setMoveSequence();
     }
-    console.log(moveSequenceArray);
     let ledDisplay = document.getElementById('digital-readout-display'),
         events = [flashGreenBtn, flashRedBtn, flashYellowBtn, flashBlueBtn],
         move = moveSequenceArray[index];
@@ -224,10 +227,24 @@ function flashBlueBtn() {
 }
 
 function playerTurn() {
+    // waits 5 sec for player to push a button
+        // if wait too long, error and replay sequence
     // pushing the button pushes that buttons value to an array
     // button lights up while being pushed (CSS?)
     // plays the button's tone
     // compares this array to moveSequenceArray
         // if fail: error tone, then replay the sequence
         // if success: add a move and play amended sequence
+}
+
+function playerFaultHandler() {
+    // if (strictModeState == "on") {
+        // if (player waits more than 5s || player pushes wrong button)
+            // 2 exclamation points flash 3 times
+            // call resetGame()
+            // call computerTurn()
+    // else {
+        // if (player waits more than 5s || player pushes wrong button)
+            // 2 exclamation points flash 3 times
+            // call computerTurn()
 }
