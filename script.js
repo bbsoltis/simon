@@ -62,17 +62,17 @@
 
 let strictModeState = "off",
     moveSequenceArray = [],
-    moveCounter = 4; 
+    moveCounter = 1; 
 
 window.onload = function () {
 
     // test button click function to be deleted later
     document.getElementById('test1').onclick = function() {
-
+        computerTurn(0);
     }
 
     document.getElementById('test2').onclick = function() {
-
+        
     }
     // end test button section
 
@@ -86,7 +86,7 @@ window.onload = function () {
     };
 
     document.getElementById('start').onclick = function() {
-        //resetGame();
+        resetGame();
         startGame();
     };
 
@@ -174,8 +174,6 @@ function blinkLedTwice() {
         }, 250);
 }
 
-// Modify to randomize and push one move at a time to moveSequenceArray
-// instead of creating the entire thing at once
 function computerTurn(index) {
     if (moveSequenceArray.length < moveCounter) {
         setMoveSequence();
