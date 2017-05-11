@@ -66,6 +66,16 @@ let strictModeState = "off",
 
 window.onload = function () {
 
+    // test button click function to be deleted later
+    document.getElementById('test1').onclick = function() {
+
+    }
+
+    document.getElementById('test2').onclick = function() {
+
+    }
+    // end test button section
+
     document.getElementById('power-switch-checkbox').onclick = function() {
         powerStatus();
         hitTheLights();
@@ -76,6 +86,7 @@ window.onload = function () {
     };
 
     document.getElementById('start').onclick = function() {
+        //resetGame();
         startGame();
     };
 
@@ -89,6 +100,7 @@ function resetGame() {
     ledDisplay.innerHTML = "--";
     ledDisplay.style.color = "#430710";
     strictLedDisplay.style.background = "#430710";
+    moveSequenceArray = [];
     // moveCounter = 1;
 }
 
@@ -133,7 +145,6 @@ function powerStatus() {
 }
 
 function startGame() {
-    resetGame();
     if (powerStatus() == "on") {
         blinkLedTwice();
         setTimeout(function() {
@@ -144,11 +155,8 @@ function startGame() {
 
 function setMoveSequence() {
     let rndNum;
-    moveSequenceArray = [];
-    for (let i = 0; i < 20; i++) {
         rndNum = Math.floor(Math.random() * (5 - 1));
         moveSequenceArray.push(rndNum);
-    }
 }
 
 function blinkLedTwice() {
@@ -169,7 +177,10 @@ function blinkLedTwice() {
 // Modify to randomize and push one move at a time to moveSequenceArray
 // instead of creating the entire thing at once
 function computerTurn(index) {
-    setMoveSequence();
+    if (moveSequenceArray.length < moveCounter) {
+        setMoveSequence();
+    }
+    console.log(moveSequenceArray);
     let ledDisplay = document.getElementById('digital-readout-display'),
         events = [flashGreenBtn, flashRedBtn, flashYellowBtn, flashBlueBtn],
         move = moveSequenceArray[index];

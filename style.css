@@ -307,3 +307,11 @@ input:checked + .slider:before {
   border-radius: 4px;
 }
 
+/* test button styling to be deleted later */
+.test-btn {
+	height: 50px;
+	width: 100px;
+	border: 2px solid black;
+	top: 20px;
+	left: 20px;
+}
