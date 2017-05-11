@@ -68,7 +68,7 @@ window.onload = function () {
 
     // test button click function to be deleted later
     document.getElementById('test1').onclick = function() {
-        computerTurn(0);
+        playerTurn();
     }
 
     document.getElementById('test2').onclick = function() {
@@ -103,7 +103,7 @@ function resetGame() {
     ledDisplay.style.color = "#430710";
     strictLedDisplay.style.background = "#430710";
     moveSequenceArray = [];
-    // moveCounter = 1;
+    moveCounter = 1;
 }
 
 // Turns on the simulated LEDs in the digital display
@@ -148,10 +148,11 @@ function powerStatus() {
 
 function startGame() {
     if (powerStatus() == "on") {
-        blinkLedTwice();
+        blinkLed("--", 1);
         setTimeout(function() {
             computerTurn(0);
         }, 1200);
+        playerFaultHandler();
     }
 }
 
@@ -163,10 +164,10 @@ function setMoveSequence() {
     }
 }
 
-function blinkLedTwice() {
+function blinkLed(text, count) {
     let ledDisplay = document.getElementById('digital-readout-display'),
-        count = 1,
         intervalId = setInterval(function() {
+            ledDisplay.innerHTML = text;
             if (ledDisplay.style.color == "rgb(67, 7, 16)") {
                 ledDisplay.style.color = "#dc0d29";
                 if (count++ === 2) {
@@ -227,6 +228,7 @@ function flashBlueBtn() {
 }
 
 function playerTurn() {
+    return true;
     // waits 5 sec for player to push a button
         // if wait too long, error and replay sequence
     // pushing the button pushes that buttons value to an array
@@ -238,6 +240,14 @@ function playerTurn() {
 }
 
 function playerFaultHandler() {
+    let waitingOnPlayer = setTimeout(function() {
+        if (playerTurn()) {
+            clearTimeout(waitingOnPlayer);
+            console.log("success!");
+        } else {
+            console.log("fail...");
+        }
+    }, 10000);
     // if (strictModeState == "on") {
         // if (player waits more than 5s || player pushes wrong button)
             // 2 exclamation points flash 3 times
