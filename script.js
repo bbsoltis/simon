@@ -211,6 +211,7 @@ function blinkLed(text, count) {
 }
 
 function computerTurn(index) {
+    playerMoveArray = [];
     if (moveSequenceArray.length < moveCounter) {
         setMoveSequence();
     }
@@ -263,40 +264,26 @@ function flashBlueBtn() {
 }
 
 function playerTurn(btn) {
-    let index = moveSequenceArray.length - 1;
+    let index = playerMoveArray.length;
     if (playerMoveArray.length < moveSequenceArray.length) {
         playerMoveArray.push(btn);
     }
     if (playerMoveArray[index] == moveSequenceArray[index]) {
+        console.log(playerMoveArray[index]);
+        console.log(moveSequenceArray[index]);
         if (playerMoveArray.length == moveSequenceArray.length) {
             moveCounter++;
-            setTimeout(function () {
-                computerTurn(0);
-            }, 500);
+            computerTurn(0);
         }
     } else {
         playerFaultHandler();
-        setTimeout(function () {
-            computerTurn(0);
-        }, 1500);
     }
-    // waits 5 sec for player to push a button
-    // if wait too long, error and replay sequence
-    // each click pushes to array, then compares
-    // if fail, play error and replay sequence
 }
 
 function playerFaultHandler() {
     blinkLed("!!", 3);
     document.getElementById('error-tone').play();
-  
-    // if (strictModeState == "on") {
-        // if (player waits more than 5s || player pushes wrong button)
-            // 2 exclamation points flash 3 times
-            // call resetGame()
-            // call computerTurn()
-    // else {
-        // if (player waits more than 5s || player pushes wrong button)
-            // 2 exclamation points flash 3 times
-            // call computerTurn()
+    setTimeout(function () {
+        computerTurn(0);
+    }, 1200);
 }
