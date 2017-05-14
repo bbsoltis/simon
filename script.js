@@ -62,7 +62,8 @@
 
 let strictModeState = "off",
     moveSequenceArray = [],
-    moveCounter = 18; 
+    moveCounter = 18,
+    gameOn = 0; 
 
 window.onload = function () {
 
@@ -91,6 +92,30 @@ window.onload = function () {
         resetGame();
         startGame();
     };
+
+    document.getElementById('green-btn').onclick = function() {
+        if (gameOn == 1) {
+            flashGreenBtn();
+        }
+    }
+
+    document.getElementById('red-btn').onclick = function() {
+        if (gameOn = 1) {
+            flashRedBtn();
+        }
+    }
+
+    document.getElementById('yellow-btn').onclick = function() {
+        if (gameOn = 1) {
+            flashYellowBtn();
+        }
+    }
+
+    document.getElementById('blue-btn').onclick = function() {
+        if (gameOn = 1) {
+            flashBlueBtn();
+        }
+    }
 
     resetGame();
 
@@ -148,6 +173,7 @@ function powerStatus() {
 
 function startGame() {
     if (powerStatus() == "on") {
+        gameOn = 1;
         blinkLed("--", 1);
         setTimeout(function() {
             computerTurn(0);
@@ -198,6 +224,7 @@ function computerTurn(index) {
 function flashGreenBtn() {
     let greenBtn = document.getElementById('green-btn');
     greenBtn.style.background = "#13ff7c";
+    document.getElementById('green-tone').play();
     setTimeout(function () {
         greenBtn.style.background = "#00A74A";
     }, 700);
@@ -206,6 +233,7 @@ function flashGreenBtn() {
 function flashRedBtn() {
     let redBtn = document.getElementById('red-btn');
     redBtn.style.background = "#ff4c4c";
+    document.getElementById('red-tone').play();
     setTimeout(function () {
         redBtn.style.background = "#9F0F17";
     }, 700);
@@ -214,6 +242,7 @@ function flashRedBtn() {
 function flashYellowBtn() {
     let yellowBtn = document.getElementById('yellow-btn');
     yellowBtn.style.background = "#fed93f";
+    document.getElementById('yellow-tone').play();
     setTimeout(function () {
         yellowBtn.style.background = "#CCA707";
     }, 700);
@@ -222,6 +251,7 @@ function flashYellowBtn() {
 function flashBlueBtn() {
     let blueBtn = document.getElementById('blue-btn');
     blueBtn.style.background = "#1c8cff";
+    document.getElementById('blue-tone').play();
     setTimeout(function () {
         blueBtn.style.background = "#094A8F";
     }, 700);
@@ -245,9 +275,9 @@ function playerFaultHandler() {
             clearTimeout(waitingOnPlayer);
             console.log("success!");
         } else {
-            console.log("fail...");
+            blinkLed("!!", 2);
         }
-    }, 10000);
+    }, 5000);
     // if (strictModeState == "on") {
         // if (player waits more than 5s || player pushes wrong button)
             // 2 exclamation points flash 3 times
