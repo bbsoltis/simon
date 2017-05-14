@@ -71,18 +71,6 @@ let strictModeState = "off",
 
 window.onload = function () {
 
-    // test button click function to be deleted later
-    document.getElementById('test1').onclick = function() {
-        setTimeout(celebrationMode, 1000);
-    }
-
-    document.getElementById('test2').onclick = function() {
-        if (moveCounter < 20) {
-            moveCounter++;
-        }
-    }
-    // end test button section
-
     document.getElementById('power-switch-checkbox').onclick = function() {
         powerStatus();
         hitTheLights();
