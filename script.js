@@ -127,12 +127,11 @@ window.onload = function () {
 }
 
 function resetGame() {
-    let ledDisplay = document.getElementById('digital-readout-display'),
-        strictLedDisplay = document.getElementById('strict-led-light');
+    let ledDisplay = document.getElementById('digital-readout-display');
     ledDisplay.innerHTML = "--";
     ledDisplay.style.color = "#430710";
-    strictLedDisplay.style.background = "#430710";
     moveSequenceArray = [];
+    playerMoveArray = [];
     moveCounter = 1;
 }
 
@@ -269,8 +268,6 @@ function playerTurn(btn) {
         playerMoveArray.push(btn);
     }
     if (playerMoveArray[index] == moveSequenceArray[index]) {
-        console.log(playerMoveArray[index]);
-        console.log(moveSequenceArray[index]);
         if (playerMoveArray.length == moveSequenceArray.length) {
             moveCounter++;
             computerTurn(0);
@@ -281,6 +278,9 @@ function playerTurn(btn) {
 }
 
 function playerFaultHandler() {
+    if (strictModeState == "on") {
+        resetGame();
+    }
     blinkLed("!!", 3);
     document.getElementById('error-tone').play();
     setTimeout(function () {
