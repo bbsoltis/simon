@@ -64,13 +64,15 @@ let strictModeState = "off",
     moveSequenceArray = [],
     playerMoveArray = [],
     moveCounter = 18,
-    gameOn = 0; 
+    gameOn = 0,
+    lightTimer = 700,
+    gapTimer = 1400; 
 
 window.onload = function () {
 
     // test button click function to be deleted later
     document.getElementById('test1').onclick = function() {
-        playerTurn();
+        celebrationMode();
     }
 
     document.getElementById('test2').onclick = function() {
@@ -95,28 +97,28 @@ window.onload = function () {
     };
 
     document.getElementById('green-btn').onclick = function() {
-        if (gameOn == 1) {
+        if (gameOn === 1) {
             flashGreenBtn();
             playerTurn(0);
         }
     }
 
     document.getElementById('red-btn').onclick = function() {
-        if (gameOn = 1) {
+        if (gameOn === 1) {
             flashRedBtn();
             playerTurn(1);
         }
     }
 
     document.getElementById('yellow-btn').onclick = function() {
-        if (gameOn = 1) {
+        if (gameOn === 1) {
             flashYellowBtn();
             playerTurn(2);
         }
     }
 
     document.getElementById('blue-btn').onclick = function() {
-        if (gameOn = 1) {
+        if (gameOn === 1) {
             flashBlueBtn();
             playerTurn(3);
         }
@@ -132,7 +134,8 @@ function resetGame() {
     ledDisplay.style.color = "#430710";
     moveSequenceArray = [];
     playerMoveArray = [];
-    moveCounter = 1;
+    moveCounter = 1, 
+    gameOn = 0;
 }
 
 // Turns on the simulated LEDs in the digital display
@@ -214,6 +217,16 @@ function computerTurn(index) {
     if (moveSequenceArray.length < moveCounter) {
         setMoveSequence();
     }
+    if (moveCounter > 5 && moveCounter < 11) {
+        gapTimer = 1200;
+        lightTimer = 600;
+    } else if (moveCounter > 10 && moveCounter < 16) {
+        gapTimer = 900;
+        lightTimer = 500;
+    } else if (moveCounter > 15) {
+        gapTimer = 700;
+        lightTimer = 400;
+    }
     let ledDisplay = document.getElementById('digital-readout-display'),
         events = [flashGreenBtn, flashRedBtn, flashYellowBtn, flashBlueBtn],
         move = moveSequenceArray[index];
@@ -223,7 +236,7 @@ function computerTurn(index) {
         if (index < (moveCounter - 1)) {
             computerTurn(index + 1);
         }
-    }, 1000);
+    }, gapTimer);
 }
 
 function flashGreenBtn() {
@@ -232,7 +245,7 @@ function flashGreenBtn() {
     document.getElementById('green-tone').play();
     setTimeout(function () {
         greenBtn.style.background = "#00A74A";
-    }, 700);
+    }, lightTimer);
 }
 
 function flashRedBtn() {
@@ -241,7 +254,7 @@ function flashRedBtn() {
     document.getElementById('red-tone').play();
     setTimeout(function () {
         redBtn.style.background = "#9F0F17";
-    }, 700);
+    }, lightTimer);
 }
 
 function flashYellowBtn() {
@@ -250,7 +263,7 @@ function flashYellowBtn() {
     document.getElementById('yellow-tone').play();
     setTimeout(function () {
         yellowBtn.style.background = "#CCA707";
-    }, 700);
+    }, lightTimer);
 }
 
 function flashBlueBtn() {
@@ -259,7 +272,7 @@ function flashBlueBtn() {
     document.getElementById('blue-tone').play();
     setTimeout(function () {
         blueBtn.style.background = "#094A8F";
-    }, 700);
+    }, lightTimer);
 }
 
 function playerTurn(btn) {
@@ -286,4 +299,13 @@ function playerFaultHandler() {
     setTimeout(function () {
         computerTurn(0);
     }, 1200);
+}
+
+function celebrationMode() {
+    blinkLed("20", 6);
+    document.getElementById('winner').play();
+    setTimeout(function() {
+        resetGame();
+        startGame();
+    }, 4000);
 }
