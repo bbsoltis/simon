@@ -62,6 +62,7 @@
 
 let strictModeState = "off",
     moveSequenceArray = [],
+    playerMoveArray = [],
     moveCounter = 18,
     gameOn = 0; 
 
@@ -96,24 +97,28 @@ window.onload = function () {
     document.getElementById('green-btn').onclick = function() {
         if (gameOn == 1) {
             flashGreenBtn();
+            playerTurn(0);
         }
     }
 
     document.getElementById('red-btn').onclick = function() {
         if (gameOn = 1) {
             flashRedBtn();
+            playerTurn(1);
         }
     }
 
     document.getElementById('yellow-btn').onclick = function() {
         if (gameOn = 1) {
             flashYellowBtn();
+            playerTurn(2);
         }
     }
 
     document.getElementById('blue-btn').onclick = function() {
         if (gameOn = 1) {
             flashBlueBtn();
+            playerTurn(3);
         }
     }
 
@@ -174,11 +179,10 @@ function powerStatus() {
 function startGame() {
     if (powerStatus() == "on") {
         gameOn = 1;
-        blinkLed("--", 1);
-        setTimeout(function() {
+        blinkLed("--", 2);
+        setTimeout(function () {
             computerTurn(0);
         }, 1200);
-        playerFaultHandler();
     }
 }
 
@@ -192,11 +196,12 @@ function setMoveSequence() {
 
 function blinkLed(text, count) {
     let ledDisplay = document.getElementById('digital-readout-display'),
+        increment = 1;
         intervalId = setInterval(function() {
             ledDisplay.innerHTML = text;
             if (ledDisplay.style.color == "rgb(67, 7, 16)") {
                 ledDisplay.style.color = "#dc0d29";
-                if (count++ === 2) {
+                if (increment++ === count) {
                     clearInterval(intervalId);
                 }
             } else {
@@ -257,27 +262,34 @@ function flashBlueBtn() {
     }, 700);
 }
 
-function playerTurn() {
-    return true;
+function playerTurn(btn) {
+    let index = moveSequenceArray.length - 1;
+    if (playerMoveArray.length < moveSequenceArray.length) {
+        playerMoveArray.push(btn);
+    }
+    if (playerMoveArray[index] == moveSequenceArray[index]) {
+        if (playerMoveArray.length == moveSequenceArray.length) {
+            moveCounter++;
+            setTimeout(function () {
+                computerTurn(0);
+            }, 500);
+        }
+    } else {
+        playerFaultHandler();
+        setTimeout(function () {
+            computerTurn(0);
+        }, 1500);
+    }
     // waits 5 sec for player to push a button
-        // if wait too long, error and replay sequence
-    // pushing the button pushes that buttons value to an array
-    // button lights up while being pushed (CSS?)
-    // plays the button's tone
-    // compares this array to moveSequenceArray
-        // if fail: error tone, then replay the sequence
-        // if success: add a move and play amended sequence
+    // if wait too long, error and replay sequence
+    // each click pushes to array, then compares
+    // if fail, play error and replay sequence
 }
 
 function playerFaultHandler() {
-    let waitingOnPlayer = setTimeout(function() {
-        if (playerTurn()) {
-            clearTimeout(waitingOnPlayer);
-            console.log("success!");
-        } else {
-            blinkLed("!!", 2);
-        }
-    }, 5000);
+    blinkLed("!!", 3);
+    document.getElementById('error-tone').play();
+  
     // if (strictModeState == "on") {
         // if (player waits more than 5s || player pushes wrong button)
             // 2 exclamation points flash 3 times
