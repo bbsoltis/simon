@@ -124,7 +124,9 @@ function resetGame() {
     moveSequenceArray = [];
     playerMoveArray = [];
     moveCounter = 1, 
-    gameOn = 0;
+    gameOn = 0,
+    gapTimer = 1100,
+    lightTimer = 700,
     clearTimeout(playerTimer);
 }
 
@@ -203,6 +205,10 @@ function blinkLed(text, count) {
 }
 
 function computerTurn(index) {
+    document.getElementById('green-btn').disabled = true;
+    document.getElementById('red-btn').disabled = true;
+    document.getElementById('yellow-btn').disabled = true;
+    document.getElementById('blue-btn').disabled = true;
     if (gameOn = 1) {
         playerMoveArray = [];
         if (moveSequenceArray.length < moveCounter) {
@@ -227,6 +233,10 @@ function computerTurn(index) {
             if (index < (moveCounter - 1)) {
                 computerTurn(index + 1);
             } else {
+                document.getElementById('green-btn').disabled = false;
+                document.getElementById('red-btn').disabled = false;
+                document.getElementById('yellow-btn').disabled = false;
+                document.getElementById('blue-btn').disabled = false;
                 playerTimer = setTimeout(function () {
                     playerFaultHandler();
                 }, 5000);
