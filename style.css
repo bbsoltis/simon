@@ -65,6 +65,7 @@ body {
 	--body-color: #333333;
 }
 
+/* Styling for game body */
 .game-body {
 	position: absolute;
 	height: 472px;
@@ -78,6 +79,7 @@ body {
 	box-shadow: 0 0 10px;
 }
 
+/* Styling for colored player push buttons */
 button {
 	height: 212px;
 	width: 212px;
@@ -87,6 +89,7 @@ button {
 	cursor: pointer;
 }
 
+/* Styling for individual colored push buttons */
 .green {
 	background:#00A74A;
 	border-top-left-radius: 212px;
@@ -115,6 +118,7 @@ button {
 	left: 24px;
 }
 
+/* Styling for miscellaneous divs that make up game body */
 .center-cover-up {
 	position: absolute;
 	height: 244px;
@@ -153,6 +157,7 @@ button {
 	left: 126px;
 }
 
+/* Styling for "Start" and "Strict" buttons */
 .round-btn {
 	height: 29px;
 	width: 29px;
@@ -178,6 +183,7 @@ button {
 	top: 113px;
 }
 
+/* Styling for fake LED display */
 .digital-readout {
 	height: 40px; 
 	width: 58px;
@@ -194,6 +200,7 @@ button {
 	user-select: none;
 }
 
+/* Styling for fake LED "Strict mode" indicator light */
 .strict-led {
 	height: 10px;
 	width: 10px;
@@ -205,6 +212,7 @@ button {
 	left: 164px;
 }
 
+/* Styling for the text labels */
 .labels {
 	position: absolute;
 	font-family: 'Oswald', sans-serif;
@@ -253,6 +261,7 @@ button {
 	vertical-align: super;
 }
 
+/* Styling for the on/off switch */
 .switch {
 	position: absolute;
 	height: 20px;
@@ -305,13 +314,4 @@ input:checked + .slider:before {
 
 .slider.square:before {
   border-radius: 4px;
-}
-
-/* test button styling to be deleted later */
-.test-btn {
-	height: 50px;
-	width: 100px;
-	border: 2px solid black;
-	top: 20px;
-	left: 20px;
 }

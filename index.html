@@ -38,24 +38,31 @@
 
     <div class="main-container">
         <div class="game-body">
+            <!-- 4 colored game push buttons -->
             <button type="button" class="green" id="green-btn"></button>
             <button type="button" class="red" id="red-btn"></button>
             <button type="button" class="yellow" id="yellow-btn"></button>
             <button type="button" class="blue" id="blue-btn"></button>
+            <!-- Miscellaneous divs to complete game body -->
             <div class="center-cover-up"></div>
             <div class="vert-cross"></div>
             <div class="hor-cross"></div>
             <div class="face">
+                <!-- Round "Start" and "Strict Mode" buttons -->
                 <button class="round-btn round-btn-click start-btn" id="start"></button>
                 <button class="round-btn round-btn-click strict-btn" id="strict"></button>
+                <!-- Fake LED display -->
                 <div class="digital-readout" id="digital-readout-display">--</div>
+                <!-- The various text labels on game face -->
                 <div class="simon-label">Simon<span class="reg-label">&reg;</span></div>
                 <div class="labels count-label">COUNT</div>
                 <div class="labels start-label">START</div>
                 <div class="labels strict-label">STRICT</div>
                 <div class="labels on-label">ON</div>
                 <div class="labels off-label">OFF</div>
+                <!-- Fake LED light that accompanies "Strict" button -->
                 <div class="strict-led" id="strict-led-light"></div>
+                <!-- Fake on/off switch -->
                 <label class="switch">
                     <input type="checkbox" class="power-switch" id="power-switch-checkbox">
                     <div class="slider square"></div>
