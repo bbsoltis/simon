@@ -1,3 +1,15 @@
+/*
+|
+---------------------------------------------------------------------
+| Simon® Game 
+---------------------------------------------------------------------
+|
+| Free Code Camp final front end project
+| Completed on May 14th, 2017 by Brian B. Soltis
+|
+*/
+
+// Global variables
 let strictModeState = "off",
     moveSequenceArray = [],
     playerMoveArray = [],
@@ -9,20 +21,24 @@ let strictModeState = "off",
 
 window.onload = function () {
 
+    // Turns on lights and sets power status when switch is activated
     document.getElementById('power-switch-checkbox').onclick = function() {
         powerStatus();
         hitTheLights();
     };
 
+    // Toggles strict mode when "Strict"" button is pushed
     document.getElementById('strict').onclick = function() {
         strictMode();
     };
 
+    // Resets and starts game play
     document.getElementById('start').onclick = function() {
         resetGame();
         startGame();
     };
 
+    // Animates green button and registers a click on players turn
     document.getElementById('green-btn').onclick = function() {
         if (gameOn === 1) {
             flashGreenBtn();
@@ -30,6 +46,7 @@ window.onload = function () {
         }
     }
 
+    // Animates red button and registers a click on players turn
     document.getElementById('red-btn').onclick = function() {
         if (gameOn === 1) {
             flashRedBtn();
@@ -37,6 +54,7 @@ window.onload = function () {
         }
     }
 
+    // Animates yellow button and registers a click on players turn
     document.getElementById('yellow-btn').onclick = function() {
         if (gameOn === 1) {
             flashYellowBtn();
@@ -44,6 +62,7 @@ window.onload = function () {
         }
     }
 
+    // Animates blue button and registers a click on players turn
     document.getElementById('blue-btn').onclick = function() {
         if (gameOn === 1) {
             flashBlueBtn();
@@ -55,6 +74,7 @@ window.onload = function () {
 
 }
 
+// Resets game parameters to default settings
 function resetGame() {
     let ledDisplay = document.getElementById('digital-readout-display');
     ledDisplay.innerHTML = "--";
@@ -108,6 +128,7 @@ function powerStatus() {
     return powerSwitchState;
 }
 
+// Executes initial parameters and functions for gameplay
 function startGame() {
     if (powerStatus() == "on") {
         gameOn = 1;
@@ -118,6 +139,7 @@ function startGame() {
     }
 }
 
+// Determines each randomized move and stores it in an array
 function setMoveSequence() {
     let rndNum;
     if (moveSequenceArray.length < 20) {
@@ -126,6 +148,7 @@ function setMoveSequence() {
     }
 }
 
+// Creates blinking text in fake LED display
 function blinkLed(text, count) {
     let ledDisplay = document.getElementById('digital-readout-display'),
         increment = 1;
@@ -142,6 +165,7 @@ function blinkLed(text, count) {
         }, 250);
 }
 
+// Main function to run game "algorithm"
 function computerTurn(index) {
     document.getElementById('green-btn').disabled = true;
     document.getElementById('red-btn').disabled = true;
@@ -183,6 +207,7 @@ function computerTurn(index) {
     }
 }
 
+// Animates game buttons
 function flashGreenBtn() {
     let greenBtn = document.getElementById('green-btn');
     greenBtn.style.background = "#13ff7c";
@@ -191,7 +216,6 @@ function flashGreenBtn() {
         greenBtn.style.background = "#00A74A";
     }, lightTimer);
 }
-
 function flashRedBtn() {
     let redBtn = document.getElementById('red-btn');
     redBtn.style.background = "#ff4c4c";
@@ -200,7 +224,6 @@ function flashRedBtn() {
         redBtn.style.background = "#9F0F17";
     }, lightTimer);
 }
-
 function flashYellowBtn() {
     let yellowBtn = document.getElementById('yellow-btn');
     yellowBtn.style.background = "#fed93f";
@@ -209,7 +232,6 @@ function flashYellowBtn() {
         yellowBtn.style.background = "#CCA707";
     }, lightTimer);
 }
-
 function flashBlueBtn() {
     let blueBtn = document.getElementById('blue-btn');
     blueBtn.style.background = "#1c8cff";
@@ -219,6 +241,7 @@ function flashBlueBtn() {
     }, lightTimer);
 }
 
+// Main function to handle player attempts
 function playerTurn(btn) {
     let index = playerMoveArray.length;
     clearTimeout(playerTimer);
@@ -241,6 +264,7 @@ function playerTurn(btn) {
     }
 }
 
+// Animation and function call when player fails or time is up
 function playerFaultHandler() {
     if (strictModeState == "on") {
         resetGame();
@@ -252,6 +276,7 @@ function playerFaultHandler() {
     }, 1200);
 }
 
+// Animation and function call when player achieves 20 moves
 function celebrationMode() {
     blinkLed("20", 6);
     document.getElementById('winner').play();
