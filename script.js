@@ -71,7 +71,7 @@ window.onload = function () {
     }
 
     resetGame();
-
+    
 }
 
 // Resets game parameters to default settings
